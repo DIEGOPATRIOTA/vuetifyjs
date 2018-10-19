@@ -24,3 +24,6 @@ npm run test
 ```
 npm run lint
 ```
+
+### img page version 1.0
+![page vuejs](https://github.com/DIEGOPATRIOTA/vuetifyjs/blob/master/page-v1.png)
