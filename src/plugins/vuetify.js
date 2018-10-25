@@ -15,7 +15,9 @@ import {
   VCard,
   VDialog,
   VDivider,
-  VBadge
+  VBadge,
+  VPagination,
+  VBtnToggle
 } from 'vuetify'
 import 'vuetify/src/stylus/app.styl'
 
@@ -35,7 +37,9 @@ Vue.use(Vuetify, {
     VCard,
     VDialog,
     VDivider,
-    VBadge
+    VBadge,
+    VPagination,
+    VBtnToggle
   },
   theme: {
     primary: '#ee44aa',

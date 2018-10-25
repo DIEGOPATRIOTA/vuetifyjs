@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="width_div_table">
     <v-toolbar flat color="white">
       <v-toolbar-title>My CRUD</v-toolbar-title>
       <v-divider
@@ -8,8 +8,17 @@
         vertical
       ></v-divider>
       <v-spacer></v-spacer>
+      <v-text-field 
+        color="indigo"
+        v-model="search"
+        append-icon="search"
+        label="Search"
+        single-line
+        hide-details
+      ></v-text-field>
+      <v-spacer></v-spacer>
       <v-dialog v-model="dialog" max-width="500px">
-        <v-btn slot="activator" color="primary" dark class="mb-2">New Item</v-btn>
+        <v-btn slot="activator" color="indigo" dark class="mb-2">New Item</v-btn>
         <v-card>
           <v-card-title>
             <span class="headline">{{ formTitle }}</span>
@@ -19,19 +28,19 @@
             <v-container grid-list-md>
               <v-layout wrap>
                 <v-flex xs12 sm6 md4>
-                  <v-text-field v-model="editedItem.name" label="Dessert name"></v-text-field>
+                  <v-text-field color="indigo" v-model="editedItem.name" label="Dessert name"></v-text-field>
                 </v-flex>
                 <v-flex xs12 sm6 md4>
-                  <v-text-field v-model="editedItem.calories" label="Calories"></v-text-field>
+                  <v-text-field color="indigo" v-model="editedItem.calories" label="Calories"></v-text-field>
                 </v-flex>
                 <v-flex xs12 sm6 md4>
-                  <v-text-field v-model="editedItem.fat" label="Fat (g)"></v-text-field>
+                  <v-text-field color="indigo" v-model="editedItem.fat" label="Fat (g)"></v-text-field>
                 </v-flex>
                 <v-flex xs12 sm6 md4>
-                  <v-text-field v-model="editedItem.carbs" label="Carbs (g)"></v-text-field>
+                  <v-text-field color="indigo" v-model="editedItem.carbs" label="Carbs (g)"></v-text-field>
                 </v-flex>
                 <v-flex xs12 sm6 md4>
-                  <v-text-field v-model="editedItem.protein" label="Protein (g)"></v-text-field>
+                  <v-text-field color="indigo" v-model="editedItem.protein" label="Protein (g)"></v-text-field>
                 </v-flex>
               </v-layout>
             </v-container>
@@ -50,6 +59,8 @@
       :items="desserts"
       hide-actions
       class="elevation-1"
+      :search="search"
+      :pagination.sync="pagination"
     >
       <template slot="items" slot-scope="props">
         <td>{{ props.item.name }}</td>
@@ -61,12 +72,14 @@
           <v-icon
             small
             class="mr-2"
+            color="indigo"  
             @click="editItem(props.item)"
           >
             edit
           </v-icon>
           <v-icon
             small
+            color="indigo"
             @click="deleteItem(props.item)"
           >
             delete
@@ -74,9 +87,12 @@
         </td>
       </template>
       <template slot="no-data">
-        <v-btn color="primary" @click="initialize">Reset</v-btn>
+        <v-btn color="indigo" @click="initialize">Reset</v-btn>
       </template>
     </v-data-table>
+    <div class="text-xs-center pt-2">
+      <v-pagination color="indigo" v-model="pagination.page" :length="pages"></v-pagination>
+    </div>
   </div>
 </template>
 
@@ -84,6 +100,8 @@
   export default {
     data: () => ({
       dialog: false,
+      search: '',
+      pagination: {},
       headers: [
         {
           text: 'Dessert (100g serving)',
@@ -118,6 +136,13 @@
     computed: {
       formTitle () {
         return this.editedIndex === -1 ? 'New Item' : 'Edit Item'
+      },
+       pages () {
+        if (this.pagination.rowsPerPage == null ||
+          this.pagination.totalItems == null
+        ) return 0
+
+        return Math.ceil(this.pagination.totalItems / this.pagination.rowsPerPage)
       }
     },
 
@@ -237,3 +262,9 @@
     }
   }
 </script>
+
+<style type="text/css">
+  .width_div_table{
+     width: 900px;
+  }
+</style>
