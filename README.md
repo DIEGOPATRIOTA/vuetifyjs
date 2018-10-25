@@ -6,8 +6,8 @@
 
 ### Source of material: 
 
-* Introduction is Vue JS [VueJS](https://vuejs.org/v2/guide/)
-* Introduction is Vuetify [Vuetify](https://vuetifyjs.com/pt-BR/getting-started/quick-start)
+* Introduction to Vue JS [VueJS](https://vuejs.org/v2/guide/)
+* Introduction to Vuetify [Vuetify](https://vuetifyjs.com/pt-BR/getting-started/quick-start)
 
 ---
 
