@@ -1,12 +1,19 @@
 # Project Vue JS/Vuetify - Template CRUD
 
-## Vuetify - Material Design Component Framework
+## ![alt text](https://github.com/DIEGOPATRIOTA/vuetifyjs/blob/master/src/assets/logo.png "vuetifyjs") Vuetify - Material Design Component Framework
 
-### Source of material > [Vuetify](https://vuetifyjs.com)
+
+
+### Source of material: 
+
+* Introduction is Vue JS [VueJS](https://vuejs.org/v2/guide/)
+* Introduction is Vuetify [Vuetify](https://vuetifyjs.com/pt-BR/getting-started/quick-start)
 
 ---
 
 ## Quick Start
+
+Install > [Node JS](https://nodejs.org/)
 
 ### Vue-CLI 3 is the next generation cli tool made to help you get started more easily than before. When you start your app with vue-cli you will also be able to get the official webpack updates and config changes, as well as Vuetify's updates without an arduous upgrade process.
 ```
