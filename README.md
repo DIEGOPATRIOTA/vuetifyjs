@@ -35,6 +35,12 @@ vue add vuetify
 
 ### Keep in mind, if you are installing the Vuetify package on an existing vue-cli-3 project, ensure you have a clean working directory in case there are issues with the merge.
 
+### install node modules
+
+```
+$ npm install
+```
+
 ### After installation, you can run the dev npm script in package.json. This will start a local development server at https://localhost:8080.
 
 ```
